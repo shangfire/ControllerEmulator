@@ -1,0 +1,8 @@
+[package]
+name = "controller_emulator"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+mlua = { version = "0.8", features = ["lua54"] }
+shared_memory = "0.12"
