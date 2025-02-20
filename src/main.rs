@@ -1,7 +1,7 @@
 /*
  * @Author: shanghanjin
  * @Date: 2025-01-22 17:32:42
- * @LastEditTime: 2025-02-20 14:42:38
+ * @LastEditTime: 2025-02-20 18:06:21
  * @FilePath: \ControllerEmulator\src\main.rs
  * @Description: 
  */
@@ -48,6 +48,13 @@ fn main() -> LuaResult<()> {
             return Ok(());
         }
     };
+
+    // 定义回调函数并注册到 Lua 环境
+    let callback = lua.create_function(|_, ()| {
+        println!("Lua called callback!");
+        Ok(())
+    })?;
+    lua.globals().set("rust_callback", callback)?;
 
     // 读取并执行lua脚本
     let script_path = &scripts[selected_id].1;

@@ -7,10 +7,17 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug",
+            "name": "Debug Rust",
             "program": "${workspaceFolder}/target/debug/controller_emulator",
             "args": [],
             "cwd": "${workspaceFolder}"
-        }
+        },
+        {
+            "name": "Debug Lua",
+            "type": "lua",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/test.lua",  // 这里替换成你的 Lua 脚本路径
+            "stopOnEntry": false
+          }
     ]
 }
